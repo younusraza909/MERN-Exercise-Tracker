@@ -5,6 +5,10 @@ const mongoose = require("mongoose");
 //for setting up enviroment variables
 require("dotenv").config();
 
+//importing router
+const exerciseRouter = require("./routes/exercises");
+const usersRouter = require("./routes/users");
+
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -22,6 +26,9 @@ const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB Database has Been Successfully Setup");
 });
+
+app.use("/exercises", exerciseRouter);
+app.use("/users", usersRouter);
 
 app.listen(port, () => {
   console.log(`Server is  running at port : ${port}`);
