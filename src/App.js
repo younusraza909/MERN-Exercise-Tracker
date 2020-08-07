@@ -11,11 +11,13 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <br />
-      <Route path="/" exact component={ExerciseList} />
-      <Route path="/edit/:id" component={EditExercise} />
-      <Route path="/create" exact component={CreateExercise} />
-      <Route path="/user" exact component={CreateUser} />
+      <div className="container">
+        <br />
+        <Route path="/" exact component={ExerciseList} />
+        <Route path="/edit/:id" component={EditExercise} />
+        <Route path="/create" exact component={CreateExercise} />
+        <Route path="/user" exact component={CreateUser} />
+      </div>
     </Router>
   );
 }
